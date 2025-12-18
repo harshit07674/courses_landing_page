@@ -191,7 +191,7 @@ const CTABanner = () => {
           ref={headingRef}
           className="text-4xl md:text-5xl font-poppins font-bold leading-snug"
         >
-          Ready to Start Your Learning Journey?
+          Ready to Start
         </h2>
 
         {/* Subtext */}
