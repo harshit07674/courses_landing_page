@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+.custom-clip {
+
+  clip-path: path(
+    "M0,0 H100% V100% C75% 80%,25% 80%,0 100% Z"
+  );
+
+
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  overflow: hidden;
+  transition: transform 0.8s ease;
+}
+
+

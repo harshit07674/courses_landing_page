@@ -1,0 +1,43 @@
+# This is an example configuration file
+# To learn more, see the full config.yaml reference: https://docs.continue.dev/reference
+
+name: Example Config
+version: 1.0.0
+schema: v1
+
+# Define which models can be used
+# https://docs.continue.dev/customization/models
+models:
+  - name: my gpt-5
+    provider: openai
+    model: gpt-5
+    apiKey: YOUR_OPENAI_API_KEY_HERE
+  - uses: ollama/qwen2.5-coder-7b
+  - uses: anthropic/claude-4-sonnet
+    with:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+models:
+  - name: qwen3b
+    model: qwen2.5:3b-instruct-q4_K_M
+    temperature: 0.2
+    num_ctx: 32768
+    num_predict: 4096
+    top_p: 0.8
+    mirostat: 2
+    mirostat_eta: 0.1
+    mirostat_tau: 5
+    stop:
+      - "User:"
+      - "Assistant:"
+      - "</s>"
+    
+server:
+  keep_alive: 1h
+  lazy_loading: false
+    
+
+# MCP Servers that Continue can access
+# https://docs.continue.dev/customization/mcp-tools
+mcpServers:
+  - uses: anthropic/memory-mcp
